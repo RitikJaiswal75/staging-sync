@@ -1,0 +1,11 @@
+name = "staging-sync"
+main = "src/worker.ts"
+node_compat=true
+compatibility_date = "2023-06-17"
+[vars]
+PAT = "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"
+[triggers]
+crons = ["0 0 * * *"]
+
+
+
