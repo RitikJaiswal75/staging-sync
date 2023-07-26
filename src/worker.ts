@@ -57,7 +57,11 @@ export default {
 				merge_status: response
 			}
 
-			return new Response(JSON.stringify(jsonData));
+			return new Response(JSON.stringify(jsonData), {
+				headers:{
+					'Access-Control-Allow-Origin': '*'
+				}
+			});
 		} catch (err) {
 			return new Response(`${err}`);
 		}
