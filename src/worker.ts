@@ -22,6 +22,7 @@ async function syncer(repository: string, token: string) {
 		body: JSON.stringify({ branch: 'develop' }),
 	});
 	const responseJson:ResponseJson = await response.json();
+	response.headers.set('Access-Control-Allow-Origin', '*.realdevsquad.com');
 	if (!response.ok) {
 		throw new Error('Oops the sync failed');
 	}
