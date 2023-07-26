@@ -59,7 +59,7 @@ export default {
 
 			return new Response(JSON.stringify(jsonData), {
 				headers:{
-					'Access-Control-Allow-Origin': 'https://dashboard.realdevsquad.com'
+					'Access-Control-Allow-Origin': '*'
 				}
 			});
 		} catch (err) {
