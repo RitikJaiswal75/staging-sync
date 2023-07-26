@@ -22,7 +22,6 @@ async function syncer(repository: string, token: string) {
 		body: JSON.stringify({ branch: 'develop' }),
 	});
 	const responseJson:ResponseJson = await response.json();
-	response.headers.set('Access-Control-Allow-Origin', '*.realdevsquad.com');
 	if (!response.ok) {
 		throw new Error('Oops the sync failed');
 	}
@@ -58,7 +57,11 @@ export default {
 				merge_status: response
 			}
 
-			return new Response(JSON.stringify(jsonData));
+			return new Response(JSON.stringify(jsonData), {
+				headers:{
+					'Access-Control-Allow-Origin': 'dashboard.realdevsquad.com'
+				}
+			});
 		} catch (err) {
 			return new Response(`${err}`);
 		}
